@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+
+body{
+    background-color: lightblue;
+    font-family: sans-serif;
+}
+
+#d1{
+    max-width: 20em;
+    margin: auto;
+}
+
+.titulo{
+    text-align: center;
+    color: rgb(0, 86, 247);
+}
+
+input{
+    font-size: 1.2em;
+    padding: 0.1em;
+    border-radius: 0.3em;
+}
+
+.logbutton{
+    background-color: lightgreen;
+    color: black;
+    border: none;
+    border-radius: 0.5em;
+    text-align: center;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.logbutton:hover{
+    background-color: greenyellow;
+    color: black;
+}

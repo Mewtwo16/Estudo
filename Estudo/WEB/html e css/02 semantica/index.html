@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="coffe_13888376.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
+  <title>HTML semantico</title>
+</head>
+
+<body> <!-- A importancia de definir as class e id dos objetivos se deve a possibilidade de formatar com css -->
+  <h1 class="t1" id="titulo">Testando Semantica e subtitulos no HTML5</h1>
+  <h2 class="t2" id="subt2_1">1 - Intrudução a formação com tags</h2>
+  <div>
+    <h3 class="t3" id="subt3_1">1.1 - Entendendo as tags h1 ao h6</h3>
+    <p class="texto" id="texto1">
+      Em html utilizasse os header h1 ao h6 para definir subtitulos podendo
+      entre eles conter ou não paragrafos.<br />
+      Definidos utilizando a tag <strong>P</strong> enquanto a tag
+      <strong>br</strong> quebra uma linha.<br />
+      HTML5 Desenvolveu diversas tags dando introdução a uma semantica
+      avançada.<br />
+    </p>
+  </div>
+  <div>
+    <h3 class="t3" id="subt3_2">1.2 - Tags semanticas</h3>
+    <p class="texto" id="texto2">
+      As tags semanticas são as tags que servem para tornar o HTML5 semantico e
+      ajudam o navegador a encontrar mais logica no seu site.<br>
+      Há formas semanticas e formas não semanticas de utilizar as tags,
+      inclusive a possibilidade de combinar tags e gerar um texto de facil
+      comrpeenção.<br />
+      A tag <b>B</b> apenas da forma em negrito(Sem semantica). Enquanto a tag
+      <strong>strong</strong> cria um texto em destaque.<br>
+      A tag <strong><i>I</i></strong> define um texto em italico(sem semantica).
+      Enquanto a tag <strong><em>em</em></strong> define um texto em enfases.<br>
+      A tag <strong>mark</strong> cria um texto marcado como um marca texto. <br>
+      Exemplo =
+      <mark style="background-color: lime;">Texte de mark</mark><br>
+      A tag <strong>small</strong> cria <small> um texto pequeno</small>.<br>
+      A tag <strong>del</strong> cria um texto excluido(algo que deve ser lido não deve ser considerado). <br>
+      Exemplo = <del>Este texto foi deletado</del><br>
+      A tag <strong>ins</strong> cria um texto inserido <br>
+      Exemplo = <ins>Este texto foi incluido</ins><br>
+      As tags <strong>sub</strong> e <strong>sup</strong> servem para deixar textos sub escritos ou superescritos<br>
+      Exemplo = Este é um texto com <sub>sub</sub>escrito. Enquanto este é um texto com um <sup>sup</sup>escrito.
+      A tag <strong>q</strong> cria uma citação.<br>
+      Exemplo = <q>Agua mole em pedra dura, tanto bate até que fura!</q><br>
+      A tag <strong>blockquote</strong> cria uma citação mais longa.
+      Exemplo =
+    <blockquote cite="Cita a fonta da citação">O <strong>blockquote</strong> altamente utilizado para criar citações
+      completas,<br>
+      se tornando uma otima tag do html semantico.</blockquote>
+    A tag <strong>abbr</strong> utiliza para informatar oque é a abrevição.<br>
+    Exemplo: O <abbr title="Hypertext Markup Language">HTML</abbr>
+    pode ser formatado com <abbr title="Cascading Style Sheets">CSS</abbr>.<br>
+    As tags para lista são <strong>ol</strong> para ordenadas e <strong>ul</strong> para não ordenadas.<br>
+    Exemplos:<br>
+    Lista ordenadas <ol type="1" start="1">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ol>
+    Listas não ordenadas:
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    Listas mistas:
+    <ol>
+      <li>Lista 1</li>
+      <ol type="a">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 2</li>
+      </ol>
+      <li>Lista 2</li>
+      <ol type="i">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ol>
+    </ol>
+    lista misturando os dois tipos:
+    <ol>
+      <li>Lista mista</li>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </ol>
+    Temos tambem as listas de definições utilizando <strong>dl, dt e dd</strong>:
+    <dl>
+      <dt>HTML</dt>
+      <dd>Linguagem de marcacão para criação de um site.</dd>
+      <dt>CSS</dt>
+      <dd>Linguagem de personalização para um site.</dd>
+    </dl>
+    Com isso entendemos diversas tags semanticas do HTML5.
+    </p>
+    <h3>1.3 - insercão de Links e imagens</h3>
+    <p>
+      Podemos utilizar links externos e internos, utilizando as tags: <br>
+      A tag <strong>a</strong> direciona a um link externo e podemos utilizar target="_blank" para abrir uma nova guia
+      e rel="external" que informa que é um link relativo a externo.
+      <a href="https://www.google.com/" target="_blank" rel="external">Este é um link externo.</a><br>
+      Agora para um link interno utilizasse a mesma tag porem sem precisar informar a url inteira.
+      <a href="pag2.html" rel="next">Este é um link interno</a><br>
+      Tambem tendo a opção de links para download utilizando o parametro <strong>download</strong>.<br>
+      <a href="coffe_13888376.ico" download="coffe_13888376" type="ico">link de download</a>
+      A tag <strong>img</strong> insere imagens utilizando a sintaxe img src(source da imagem) alt(descricao da
+      imagem).<br>
+      A tag <strong>picture</strong> permite criar varias <strong>sources</strong> para criar imagens de diferentes tamanhos.
+      adaptando elas sozinhas ao site. <b>Imagens flexiveis!</b>
+    </p>
+  </div>
+
+  <div></div>
+  <h2 class="t2" id="subt2_2"><a href="CSS.html" target="_blank" rel="next">2 - CSS</a></h2>
+  <a href="CSS.html" target="_blank" rel="next">
+    <img src="images.png" alt="Logo CSS">
+  </a>
+  </div>
+
+
+
+</body>
+
+</html>

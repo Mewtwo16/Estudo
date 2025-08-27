@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body{
+    background-color: lightgoldenrodyellow;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 2.5em;
+    font-weight: 700;
+    @font-face {
+        font-family: "PressStart2P";
+        src: url('fonts/PressStart2P-Regular.ttf') format('truetype');
+    }
+}
+
+h2{
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h3{
+    font-size: 1.5;
+    font-weight: 600;
+}
+
+div{
+
+}
+
+p{
+    size: 20px;
+    text-align: justify;
+    font-weight: 400;
+}

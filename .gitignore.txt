@@ -1,0 +1,11 @@
+# .NET / Visual Studio
+.vs/
+bin/
+obj/
+Properties/launchSettings.json
+
+.vscode/
+
+# Node.js
+node_modules/
+npm-debug.log

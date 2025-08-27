@@ -1,0 +1,14 @@
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\bin\Debug\net8.0\Formatação.exe
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\bin\Debug\net8.0\Formatação.deps.json
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\bin\Debug\net8.0\Formatação.runtimeconfig.json
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\bin\Debug\net8.0\Formatação.dll
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\bin\Debug\net8.0\Formatação.pdb
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.GeneratedMSBuildEditorConfig.editorconfig
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.AssemblyInfoInputs.cache
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.AssemblyInfo.cs
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.csproj.CoreCompileInputs.cache
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.dll
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\refint\Formatação.dll
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.pdb
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\Formatação.genruntimeconfig.cache
+C:\DEV\Estudo\C#\C# procedural\01 - Conceitos basicos\ConceitosBasicos\Formatação de dados\obj\Debug\net8.0\ref\Formatação.dll
