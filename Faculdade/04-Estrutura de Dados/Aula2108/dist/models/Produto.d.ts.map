@@ -1,0 +1,1 @@
+{"version":3,"file":"Produto.d.ts","sourceRoot":"","sources":["../../src/models/Produto.ts"],"names":[],"mappings":"AAAA,qBAAa,OAAO;IAEL,IAAI,EAAE,MAAM;IACZ,KAAK,EAAE,MAAM;gBADb,IAAI,EAAE,MAAM,EACZ,KAAK,EAAE,MAAM;IAIxB,UAAU,IAAG,IAAI;CAGpB"}

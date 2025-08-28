@@ -1,0 +1,7 @@
+Tutorial criação do diretorio com electron
+
+1 - Criação do package.json: npm init -y
+
+2 - Editar package.json
+
+3 - Criação da biblioteca do electron: npm install electron --save-dev -- ou -- npm i electron --save-dev

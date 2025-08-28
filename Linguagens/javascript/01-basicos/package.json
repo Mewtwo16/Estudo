@@ -1,0 +1,17 @@
+{
+  "name": "01-basicos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && electron ."
+  },
+  "keywords": [],
+  "author": "Andre",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^37.3.1",
+    "typescript": "^5.9.2"
+  }
+}
