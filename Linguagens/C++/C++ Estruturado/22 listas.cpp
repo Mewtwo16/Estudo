@@ -16,7 +16,7 @@
 int main(){
 
     // posso declaras listas
-    // std::list<int> aula(5); lsita com 5 posições
+    // std::list<int> aula(5); lista com 5 posições
     // std::list<int> aula(5,50); lista com 5 posições que valem 50
     // std::list<int> aula, codigo, nome; // varias listas declaras
 

@@ -1,10 +1,20 @@
 /*
-    Entendendo tipos de dados primitivos em JavaScript
+    Os titpos de dados são: 
+    
+    Tipos primitivos(imutaveis) em JavaScript
     - String
     - Number
     - Boolean
     - Undefined
     - Null
+    - bigint
+    - symbol
+        
+    Tipos de referencia(mutaveis) - Apontam para um local na memoria
+    - arrays 
+    - object
+    - function
+        
 
     Regras importantes:
 

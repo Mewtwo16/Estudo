@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo Isolado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="box-titulo">
+        <h1 class="titulo">Pagina de cadastro</h1>
+    </header>
+    <main class="container">
+        <form method="post">
+            <div class="box-subtitulo">
+                <h2 class="subtitulo">Dados pessoais</h2>
+                <label>Nome completo:<input type="text"></label>
+                <label>Data de nascimento:<input type="datetime"></label>
+                <label>CPF/CNPJ:<input type="number"></label>
+                <label>RG:<input type="number"></label>
+                <label>Sexo:<ul>
+                        <li><input type="checkbox">Masculino</li>
+                        <li><input type="checkbox">Feminino</li>
+                        <li><input type="checkbox">Outros</li>
+                        <li><input type="checkbox">Não informar</li>
+                    </ul>
+                </label>
+            </div>
+            <div class="box-subtitulo">
+                <h2 class="subtitulo">Contato</h2>
+                <label>Email:<input type="email"></label>
+                <label>Telefone/Celular:<input type="email"></label>
+            </div>
+            <div class="box-subtitulo">
+                <h2 class="subtitulo">Endereço</h2>
+                    <label>CEP:<input type="number"></label>
+                    <label>Rua:<input type="text"></label>
+                    <label>Num:<input type="number"></label>
+                    <label>Bairro:<input type="text"></label>
+                    <label>Municipio:<input type="text"></label>
+                    <label>UF:<input type="text"></label>
+            </div>
+            <div class="box-subtitulo">
+                <h2>Contrato</h2>
+                <label>Departamento:<input type="text"></label>
+                <label>função:<input type="text"></label>
+                <label>Tipo de Contrato:<input type="text"></label>
+                <label>Data admissão:<input type="datetime"></label>
+            </div>
+            <div class="box-subtitulo">
+                <h2>Complementar</h2>
+                <label>Formação:<input type="text"></label>
+                <label>PIS:<input type="text"></label>
+            </div>
+        </form>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

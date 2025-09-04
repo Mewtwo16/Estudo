@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.box-header {
+    background: cyan;
+    height: 50px;
+}
+
+.menu.submenu {
+    display: none;
+}
