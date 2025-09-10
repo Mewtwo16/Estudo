@@ -1,1 +1,3 @@
 /* Funções em typescript */
+
+
