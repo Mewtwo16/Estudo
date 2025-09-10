@@ -15,10 +15,10 @@ function escopo(){
 
     function recebeEvento(evento){
         evento.preventDefault();
-        const nome = form.querySelector(`#box-nome`);
-        const sobrenome = form.querySelector(`#box-sobrenome`);
-        const peso = form.querySelector(`#box-peso`);
-        const altura = form.querySelector(`#box-altura`);
+        const nome = document.querySelector(`#box-nome`);
+        const sobrenome = document.querySelector(`#box-sobrenome`);
+        const peso = document.querySelector(`#box-peso`);
+        const altura = document.querySelector(`#box-altura`);
 
         pessoas.push({nome: nome.Value, sobrenome: sobrenome.Value, peso: peso.Value, altura: altura.Value});
 
