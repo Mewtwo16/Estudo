@@ -1,6 +1,12 @@
 // for classico
 
-
+const nome = ['André','Ricardo','Monteiro'];
+const frutas = ["Maçã", "Pera", "Uva"];
+const pessoa = {
+    nome: 'André',
+    sobrenome: 'Ricardo',
+    idade: 24
+};
 
 for(let i = 0; i < 6; i++){
     console.log(`Contando ${i}`);
@@ -11,8 +17,28 @@ for(let i = 0; i < 11; i++){
     console.log(i, par);
 }
 
-const frutas = ["Maçã", "Pera", "Uva"];
+
 
 for(let i = 0; i < frutas.length; i++){
     console.log(frutas[i]);
 }
+
+// for in - Le indices ou chaves
+
+for( let indice in frutas){
+    console.log(indice, frutas[indice]);
+}
+
+for(let chave in pessoa){
+    console.log(chave, pessoa[chave]);
+}
+
+// for of - pega o valor de itens iteraveis 
+
+for(let valor of nome){
+    console.log(valor)
+}
+
+nome.forEach((valor, indice, array) =>{
+    console.log(valor, indice, array);
+})
