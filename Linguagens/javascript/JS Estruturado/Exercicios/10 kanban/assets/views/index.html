@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Quadro Kanban</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Mini Kanban</h1>
+    </header>
+
+    <div class="container-formulario">
+        <form id="form-nova-tarefa">
+            <input type="text" id="input-descricao-tarefa" placeholder="Descrição da nova tarefa..." required>
+            <button type="submit">Adicionar Tarefa</button>
+        </form>
+    </div>
+
+    <main class="quadro-kanban">
+        <div class="coluna">
+            <h2>A Fazer</h2>
+            <ul class="lista-tarefas" id="coluna-a-fazer" data-status="a-fazer"></ul>
+        </div>
+
+        <div class="coluna">
+            <h2>Em Andamento</h2>
+            <ul class="lista-tarefas" id="coluna-em-andamento" data-status="em-andamento"></ul>
+        </div>
+
+        <div class="coluna">
+            <h2>Concluído</h2>
+            <ul class="lista-tarefas" id="coluna-concluido" data-status="concluido"></ul>
+        </div>
+    </main>
+
+    <script src="../../src/main.js"></script>
+</body>
+</html>

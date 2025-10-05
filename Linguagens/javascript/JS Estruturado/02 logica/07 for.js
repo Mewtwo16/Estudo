@@ -39,11 +39,11 @@ for(let valor of nome){
     console.log(valor)
 }
 
+// foreach - apenas para arrays
+
 nome.forEach((valor, indice, array) =>{
     console.log(valor, indice, array);
 })
-
-// foreach - apenas para arrays
 
 const a1 = [10,20,30,40,50,60,70,80,90];
 let total = 0;
