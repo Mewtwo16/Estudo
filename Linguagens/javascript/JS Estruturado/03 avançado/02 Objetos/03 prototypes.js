@@ -28,31 +28,3 @@ const objB = {
 }
 // Coloquei o objA como __proto_ do objB
 Object.setPrototypeOf(objB, objA)
-
-// Fctory functions
-function criaPessoa(nome, sobrenome){
-    const pessoaPrototype = {
-        falar(){
-            console.log(`${nome} está falando`)
-        },
-        comer(){
-            console.log(`${nome} está comendo`)
-        },
-        beber(){
-            console.log(`${nome} está bebendo`)
-        }
-    }
-    return{
-        nome,
-        sobrenome,
-    };
-    return Object.create(pessoaPrototype, {
-        nome: {value: nome},
-        sobrenome: {value: sobrenome}
-    });
-};
-
-const p1 = criaPessoa('André', 'Ricardo');
-p1.falar()
-p1.comer()
-p1.beber()

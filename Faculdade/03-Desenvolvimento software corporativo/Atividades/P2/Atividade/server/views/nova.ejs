@@ -1,0 +1,35 @@
+<%- include('parciais/cabecalho') %>
+
+<section class="card">
+  <h2>Cadastrar Nova O.S.</h2>
+  <form action="/api/ordens" method="post" class="form">
+    <div class="form-group">
+      <label for="cliente_nome">Cliente</label>
+      <input type="text" id="cliente_nome" name="cliente_nome" required />
+    </div>
+    <div class="form-group">
+      <label for="equipamento">Equipamento</label>
+      <input type="text" id="equipamento" name="equipamento" required />
+    </div>
+    <div class="form-group">
+      <label for="descricao_problema">Descrição do Problema</label>
+      <textarea id="descricao_problema" name="descricao_problema" rows="5" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="status">Status (opcional)</label>
+      <select id="status" name="status">
+        <option value="">Padrão: Aberto</option>
+        <option value="Aberto">Aberto</option>
+        <option value="Em Andamento">Em Andamento</option>
+        <option value="Concluído">Concluído</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>
+    </div>
+    <div class="form-actions">
+      <button class="btn" type="submit">Salvar</button>
+      <a class="btn secondary" href="/">Cancelar</a>
+    </div>
+  </form>
+</section>
+
+<%- include('parciais/rodape') %>

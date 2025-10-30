@@ -1,0 +1,44 @@
+<%- include('parciais/cabecalho') %>
+
+<section>
+  <div class="actions">
+    <a class="btn" href="/os/nova">+ Nova O.S.</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Equipamento</th>
+        <th>Status</th>
+        <th>Criada em</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (ordens.length === 0) { %>
+        <tr><td colspan="6" class="empty">Nenhuma O.S. cadastrada ainda.</td></tr>
+      <% } %>
+      <% ordens.forEach(os => { %>
+        <tr>
+          <td><%= os.id %></td>
+          <td><%= os.cliente_nome %></td>
+          <td><%= os.equipamento %></td>
+          <td><span class="badge <%= os.status.toLowerCase() %>"><%= os.status %></span></td>
+          <td><%= new Date(os.data_criacao).toLocaleString('pt-BR') %></td>
+          <td class="actions-cell">
+            <form action="/api/ordens/<%= os.id %>/concluir" method="post" style="display:inline">
+              <button class="btn" type="submit" <%= os.status === 'Concluído' ? 'disabled' : '' %>>Concluir</button>
+            </form>
+            <form action="/api/ordens/<%= os.id %>/excluir" method="post" style="display:inline">
+              <button class="btn danger" type="submit" <%= os.status !== 'Aberto' ? 'disabled' : '' %>>Cancelar</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  
+</section>
+
+<%- include('parciais/rodape') %>

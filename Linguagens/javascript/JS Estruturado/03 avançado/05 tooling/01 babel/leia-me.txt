@@ -1,0 +1,5 @@
+ Instalação do babel:
+ 
+ O babel deveria ser somente uma dev dependenci usar sempre --save-dev
+
+ npm install @babel/cli @babel/preset-env @babel/core --save-dev
