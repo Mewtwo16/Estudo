@@ -1,0 +1,52 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    // "rootDir": "./src",
+    "outDir": "./frontend/assets/js",
+
+    // Environment Settings
+  // See also https://aka.ms/tsconfig/module
+  // Use bundler semantics for webpack to avoid Node ESM/CJS rules during type-checking
+  "module": "ESNext",
+  "moduleResolution": "bundler",
+  "target": "ESNext",
+    "types": [],
+    // For nodejs:
+    "lib": ["esnext", "Dom"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+  // Keep ESM syntax for webpack; allow default imports from CJS libs like 'validator'
+  "verbatimModuleSyntax": true,
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+  },
+  "include": [
+    "./src"
+  ]
+}

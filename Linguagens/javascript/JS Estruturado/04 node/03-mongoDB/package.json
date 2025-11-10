@@ -20,6 +20,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "mongodb": "^6.20.0",
+    "mongoose": "^8.19.2",
     "regenerator-runtime": "^0.14.1",
     "style-loader": "^4.0.0"
   },
@@ -29,7 +30,6 @@
     "@babel/preset-env": "^7.28.3",
     "babel-loader": "^10.0.0",
     "dotenv": "^17.2.3",
-    "mongoose": "^8.19.2",
     "nodemon": "^3.1.10",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
