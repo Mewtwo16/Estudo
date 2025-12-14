@@ -1,0 +1,1 @@
+{"version":3,"file":"Nodes.d.ts","sourceRoot":"","sources":["../../src/circular-list/Nodes.ts"],"names":[],"mappings":"AAAA,qBAAa,KAAK,CAAC,CAAC;IAGL,KAAK,EAAE,CAAC;IACR,IAAI,EAAE,KAAK,CAAC,CAAC,CAAC,GAAG,IAAI;gBADrB,KAAK,EAAE,CAAC,EACR,IAAI,GAAE,KAAK,CAAC,CAAC,CAAC,GAAG,IAAW;CAG1C"}

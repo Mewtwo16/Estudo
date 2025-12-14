@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  /* Customizações do tema aqui */
+  --font-family-sans: Poppins, sans-serif;
+}

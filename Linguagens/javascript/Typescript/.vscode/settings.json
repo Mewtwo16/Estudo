@@ -1,0 +1,10 @@
+{
+  "code-runner.executorMap": {
+    "typescript": "npx tsx"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.preserveFocus": false,
+  "code-runner.fileDirectoryAsCwd": false
+}
