@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 
+<<<<<<< Updated upstream
 int main(){
 
     int A[] = {1, 0, 5, -2, -5, 7}; // Atribuição, complexidade  O(1)
@@ -43,4 +44,18 @@ int main(){
     };
 
     return 0;
+=======
+int main(void){
+
+    int A[] = {1, 0, 5, -2, -5, 7};
+    
+
+    int soma = A[0] + A[1] + A[5];
+    printf(" %d ", soma);
+
+
+
+
+
+>>>>>>> Stashed changes
 }

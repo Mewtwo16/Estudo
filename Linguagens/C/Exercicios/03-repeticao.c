@@ -15,9 +15,8 @@ int main(){
     printf("Opção: ");
     scanf("%d", &menu);
 
-    switch (menu)
-    {
-    case 1:
+    switch (menu){
+    case 1:{
         int multiplo = 0;
         bool isFinish = true;
         int cout = 0;
@@ -35,7 +34,8 @@ int main(){
             isFinish = false;
         }while(isFinish);
         break;
-    case 2:
+    }
+    case 2:{
         int incrementador = 0;
         int incrementado = 0;
         int max = 0;
@@ -59,7 +59,8 @@ int main(){
             };
         };
         break;
-    case 3: 
+    }
+    case 3: {
             int numeroLido = 0;
             int maior = 0;
             int menor = 0;
@@ -85,6 +86,7 @@ int main(){
             printf("O maior valor foi: %d\n", maior);
             printf("O menor valor foi: %d\n", menor);
         break;
+    }
     default:
         printf("Valor informado invalido");
         break;
