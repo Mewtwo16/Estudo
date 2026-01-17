@@ -321,3 +321,246 @@ void referencia_structs() {
     ptr->idade = 21;         // Acesso com SETA (->)
                              // ptr->idade é atalho para (*ptr).idade
 }
+
+/* ======================================================================================
+ * 8. BIBLIOTECAS PADRÃO C - GUIA RÁPIDO
+ * ====================================================================================== */
+
+/* --------------------------------------------------------------------------------------
+ * A. <stdio.h> - Entrada/Saída (Console e Arquivos)
+ * -------------------------------------------------------------------------------------- */
+void referencia_stdio() {
+    // === CONSOLE ===
+    printf("Texto %d", valor);     // Imprime formatado. Retorna: num chars escritos
+    scanf("%d", &var);              // Lê formatado. Strings SEM &. Retorna: itens lidos
+    fgets(str, tam, stdin);         // Lê linha SEGURO (lê espaços). Retorna: str ou NULL
+    puts("texto");                  // Imprime + \n automático
+    getchar() / putchar(c);         // Lê/escreve 1 char
+    sprintf(buf, "f:%d", v);        // printf para string
+    sscanf(str, "%d", &v);          // scanf de string
+    
+    // === ARQUIVOS ===
+    FILE *f = fopen("a.txt", "r");  // Modos: r,w,a,r+,w+,a+ (+b para binário)
+    fclose(f);                       // SEMPRE fechar após uso
+    fgetc(f) / fputc('A', f);       // Lê/escreve 1 char. fgetc retorna EOF no fim
+    fgets(buf, tam, f);              // Lê linha de arquivo
+    fputs("texto", f);               // Escreve string (SEM \n automático)
+    fprintf(f, "f:%d", v);           // printf para arquivo
+    fscanf(f, "%d", &v);             // scanf de arquivo
+    fread(&var, sizeof(t), n, f);    // Lê n elementos binários
+    fwrite(&var, sizeof(t), n, f);   // Escreve n elementos binários
+    feof(f);                         // Retorna ≠0 se fim do arquivo
+    rewind(f);                       // Volta ponteiro ao início
+    fseek(f, offset, origem);        // Move ponteiro. Origem: SEEK_SET/CUR/END
+    ftell(f);                        // Retorna posição atual (bytes)
+    remove("a.txt");                 // Deleta arquivo
+    rename("v.txt", "n.txt");        // Renomeia arquivo
+}
+
+/* --------------------------------------------------------------------------------------
+ * B. <stdlib.h> - Memória, Conversão, Aleatoriedade, Sistema
+ * -------------------------------------------------------------------------------------- */
+void referencia_stdlib() {
+    // === MEMÓRIA DINÂMICA ===
+    malloc(bytes);                   // Aloca memória (lixo). Retorna: void* ou NULL
+    calloc(qtd, tam);                // Aloca + zera. Retorna: void* ou NULL
+    realloc(ptr, novo_tam);          // Redimensiona. Retorna: novo ponteiro
+    free(ptr);                       // Libera memória. SEMPRE usar após malloc/calloc
+    
+    // === CONVERSÃO STRING→NÚMERO ===
+    atoi("123");                     // String → int. Retorna 0 se inválido
+    atof("3.14");                    // String → double
+    atol("999999");                  // String → long
+    strtol(str, &fim, base);         // Conversão robusta. fim = onde parou
+    
+    // === NÚMEROS ALEATÓRIOS ===
+    srand(time(NULL));               // Define semente. Usar UMA VEZ no main
+    rand();                          // Gera 0 a RAND_MAX
+    rand() % 100;                    // Gera 0 a 99
+    (rand() % 41) + 10;              // Gera 10 a 50
+    
+    // === SISTEMA ===
+    exit(0);                         // Encerra programa. 0=sucesso, 1=erro
+    abort();                         // Encerra anormalmente (core dump)
+    system("clear");                 // Executa comando do terminal
+    getenv("HOME");                  // Lê variável de ambiente. Retorna: string ou NULL
+    
+    // === ORDENAÇÃO/BUSCA ===
+    qsort(arr, n, sizeof(t), cmp);   // Ordena array. Precisa função comparação
+    bsearch(&key, arr, n, sizeof(t), cmp); // Busca binária. Array ORDENADO
+    abs(-10);                        // Valor absoluto inteiro
+}
+
+/* --------------------------------------------------------------------------------------
+ * C. <string.h> - Strings e Memória
+ * -------------------------------------------------------------------------------------- */
+void referencia_string() {
+    // === OPERAÇÕES BÁSICAS ===
+    strlen(str);                     // Tamanho (sem \0). Retorna: int
+    strcpy(dest, orig);              // Copia string (substitui =)
+    strncpy(dest, orig, n);          // Copia até n chars (mais seguro)
+    strcat(dest, orig);              // Concatena (substitui +=)
+    strncat(dest, orig, n);          // Concatena até n chars
+    strcmp(s1, s2);                  // Compara. Retorna: 0=igual, <0=menor, >0=maior
+    strncmp(s1, s2, n);              // Compara n primeiros chars
+    
+    // === BUSCA ===
+    strchr(str, 'c');                // Busca 1ª ocorrência de char. Retorna: ptr ou NULL
+    strrchr(str, 'c');               // Busca última ocorrência
+    strstr(str, "sub");              // Busca substring. Retorna: ptr ou NULL
+    strpbrk(str, "abc");             // Busca qualquer char do conjunto
+    strspn(str, "0123456789");       // Conta chars iniciais do conjunto
+    
+    // === TOKENIZAÇÃO ===
+    strtok(str, ",");                // Divide por delimitador. MODIFICA string original!
+    strtok(NULL, ",");               // Continua de onde parou
+    
+    // === MEMÓRIA ===
+    memset(ptr, val, bytes);         // Preenche memória com valor
+    memcpy(dest, orig, bytes);       // Copia memória. NÃO usar com sobreposição
+    memmove(dest, orig, bytes);      // Copia memória. SEGURO para sobreposição
+    memcmp(p1, p2, bytes);           // Compara memória. Retorna: 0=igual
+}
+
+/* --------------------------------------------------------------------------------------
+ * D. <math.h> - Matemática (compile com -lm no Linux)
+ * -------------------------------------------------------------------------------------- */
+void referencia_math() {
+    // === POTÊNCIAS/RAÍZES/LOGS ===
+    pow(base, exp);                  // Potência. Retorna: double
+    sqrt(x);                         // Raiz quadrada
+    cbrt(x);                         // Raiz cúbica
+    exp(x);                          // e^x
+    log(x);                          // ln(x) - logaritmo natural
+    log10(x);                        // log base 10
+    log2(x);                         // log base 2
+    
+    // === ARREDONDAMENTO ===
+    ceil(x);                         // Arredonda para CIMA
+    floor(x);                        // Arredonda para BAIXO
+    round(x);                        // Arredonda para MAIS PRÓXIMO
+    trunc(x);                        // Remove decimais (corta)
+    fabs(x);                         // Valor absoluto double/float
+    
+    // === TRIGONOMETRIA (radianos) ===
+    sin(rad) / cos(rad) / tan(rad);  // Seno, cosseno, tangente
+    asin(x) / acos(x) / atan(x);     // Funções inversas (arco)
+    atan2(y, x);                     // Arctangente de y/x (melhor que atan)
+    M_PI;                            // Constante π = 3.14159...
+    // Conversão: rad = graus * (M_PI/180), graus = rad * (180/M_PI)
+    
+    // === OUTRAS ===
+    fmod(x, y);                      // Resto divisão para float
+    fmax(x, y) / fmin(x, y);         // Maior/menor de dois valores
+    hypot(x, y);                     // Hipotenusa: √(x²+y²)
+}
+
+/* --------------------------------------------------------------------------------------
+ * E. <ctype.h> - Classificação e Conversão de Caracteres
+ * Todas retornam ≠0 se verdadeiro, 0 se falso
+ * -------------------------------------------------------------------------------------- */
+void referencia_ctype() {
+    // === VERIFICAÇÃO ===
+    isdigit(c);                      // É dígito 0-9?
+    isalpha(c);                      // É letra A-Z, a-z?
+    isalnum(c);                      // É letra OU dígito?
+    isspace(c);                      // É espaço/tab/enter?
+    ispunct(c);                      // É pontuação?
+    isprint(c);                      // É imprimível (incluindo espaço)?
+    isgraph(c);                      // É imprimível (exceto espaço)?
+    iscntrl(c);                      // É char de controle?
+    isupper(c) / islower(c);         // É maiúscula/minúscula?
+    
+    // === CONVERSÃO ===
+    toupper(c);                      // Converte para maiúscula
+    tolower(c);                      // Converte para minúscula
+}
+
+/* --------------------------------------------------------------------------------------
+ * F. <time.h> - Data, Hora e Cronometragem
+ * -------------------------------------------------------------------------------------- */
+#include <time.h>
+void referencia_time() {
+    // === TIMESTAMP ===
+    time_t now = time(NULL);         // Segundos desde 1970. Retorna: time_t ou -1
+    
+    // === CONVERSÃO/FORMATAÇÃO ===
+    ctime(&now);                     // Converte para string legível
+    struct tm *info = localtime(&now); // Converte para struct (hora local)
+    gmtime(&now);                    // Converte para struct (UTC)
+    // struct tm: tm_year (+1900), tm_mon (0-11), tm_mday, tm_hour, tm_min, tm_sec
+    
+    strftime(buf, tam, "%d/%m/%Y %H:%M:%S", info); // Formata customizado
+    // Códigos: %d=dia %m=mês %Y=ano %H=hora24 %M=min %S=seg %A=dia_semana %B=mês
+    
+    mktime(&tm_struct);              // struct tm → time_t
+    
+    // === MEDIÇÃO ===
+    difftime(fim, inicio);           // Diferença em segundos. Retorna: double
+    clock_t t = clock();             // Ticks de CPU desde início do programa
+    ((double)t) / CLOCKS_PER_SEC;    // Converte ticks → segundos
+}
+
+/* --------------------------------------------------------------------------------------
+ * G. <stdbool.h> - Tipo Booleano (C99+)
+ * -------------------------------------------------------------------------------------- */
+#include <stdbool.h>
+void referencia_bool() {
+    bool ativo = true;
+    bool pausado = false;
+}
+
+/* --------------------------------------------------------------------------------------
+ * H. <limits.h> e <float.h> - Limites dos Tipos
+ * -------------------------------------------------------------------------------------- */
+#include <limits.h>
+#include <float.h>
+void referencia_limites() {
+    INT_MAX / INT_MIN;               // Maior/menor int
+    LONG_MAX / LONG_MIN;             // Maior/menor long
+    CHAR_MAX / CHAR_MIN;             // Maior/menor char
+    FLT_MAX / FLT_MIN;               // Maior/menor float
+    DBL_MAX / DBL_MIN;               // Maior/menor double
+}
+
+/* --------------------------------------------------------------------------------------
+ * I. <assert.h> - Assertivas para Debug
+ * -------------------------------------------------------------------------------------- */
+#include <assert.h>
+void referencia_assert() {
+    assert(x > 0);                   // Aborta se condição FALSA. Remover com -DNDEBUG
+}
+
+/* --------------------------------------------------------------------------------------
+ * J. <errno.h> - Códigos de Erro
+ * -------------------------------------------------------------------------------------- */
+#include <errno.h>
+void referencia_errno() {
+    // errno: variável global com código do último erro
+    perror("Mensagem");              // Imprime mensagem + erro de errno
+    strerror(errno);                 // Converte errno em string. Retorna: string
+    // Códigos comuns: ENOENT (não existe), EACCES (sem permissão), ENOMEM (sem memória)
+}
+
+/* --------------------------------------------------------------------------------------
+ * K. <signal.h> - Tratamento de Sinais (Unix/Linux)
+ * -------------------------------------------------------------------------------------- */
+#include <signal.h>
+void referencia_signal() {
+    signal(SIGINT, handler_func);    // Define handler para sinal
+    // Sinais: SIGINT (Ctrl+C), SIGTERM (término), SIGSEGV (segfault), SIGFPE (div/0)
+}
+
+/* --------------------------------------------------------------------------------------
+ * L. BIBLIOTECAS NÃO-PADRÃO ÚTEIS
+ * -------------------------------------------------------------------------------------- */
+// <unistd.h> (POSIX): sleep(), usleep(), access(), chdir(), getcwd(), fork()
+// <windows.h> (Windows): Sleep(), system("pause"), funções GUI, threads
+// <pthread.h> (Threads): pthread_create(), pthread_join()
+// <dirent.h> (Diretórios): opendir(), readdir(), closedir()
+// <sys/stat.h> (Info arquivo): stat() - tamanho, permissões, data modificação
+}
+
+/* ======================================================================================
+ * 9. MACROS E DIRETIVAS DO PREPROCESSADOR
+}

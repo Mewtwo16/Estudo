@@ -34,6 +34,11 @@ int main(){
         / divisão
         % Resto/modulo
 
+        Operadores Booleanos
+        &&	and
+        ||	or
+        !	not
+
         Conseguimos fazer um cast (float), que faz a operação como se fosse float
     */
     
