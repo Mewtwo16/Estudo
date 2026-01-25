@@ -1,4 +1,11 @@
 
+#ifdef _WIN32
+    #include <windows.h>
+#else
+    #include <unistd.h>
+    #define Sleep(x) usleep((x)*1000) // Define Sleep para funcionar como no Windows
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "buscaSaida.h"
@@ -55,7 +62,7 @@ int buscaSaida(int x, int y){
 }
 
 void desenhaMapa(){
-    system("cls");
+    system("clear");
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5;j++){
             printf("%d ", mapa[i][j]);
@@ -63,4 +70,5 @@ void desenhaMapa(){
         printf("\n");
     };
     Sleep(200);
+    
 }

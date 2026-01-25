@@ -1,0 +1,22 @@
+
+
+Utilizado para medir a complexidade e tempo de execução de um algoritimo
+Não leva em consideração o SO, poder de processamento e linguagem de programação
+A complexidade aumenta de acordo com as entradas N(numeros de entradas)
+
+O(1) - constante:
+    instantaneo
+    Geralmente atribuições de variaveis, comparações, outputs como printf
+O(n) - linear
+    Rapido se utilizado com poucos numeros
+    Geralmente algoritimo de repetição e loops simples como FOR ou WHILE
+O(n*2) - quadradico
+    Extremamente lento
+    um loop dentro de um loop EX:
+    for(int i = 0; i < n; i++){ 
+        for(int j = 0; j < i; i++){
+
+        }
+    }
+    o primeiro for tem complexidade N e o segundo tambem, como um depende do outro se torna N * N ou O(n*2)
+    Loop dentro de um loop, funciona com while e qualquer tipo de loop que rode N vezes
