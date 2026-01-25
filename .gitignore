@@ -202,3 +202,5 @@ Debug/
 *.tmp
 *.temp
 node_modules
+
+Linguagens/C/.vscode/
