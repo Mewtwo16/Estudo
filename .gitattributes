@@ -1,0 +1,10 @@
+# Forçar tudo para o padrão Linux (LF) no repositório
+# O Git converte para CRLF no Windows automaticamente quando você baixa,
+# mas mantém LF puro lá dentro do Git.
+* text=auto eol=lf
+
+# Manter arquivos binários intocados (imagens, executáveis)
+*.png binary
+*.jpg binary
+*.dll binary
+*.exe binary
