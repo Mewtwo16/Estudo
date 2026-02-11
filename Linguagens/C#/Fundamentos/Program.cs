@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Fundamentos.Basicos;
-using Fundamentos.classesMetodos;
+using Fundamentos.POO;
 
 namespace Fundamentos {
     class Program {
@@ -14,7 +14,7 @@ namespace Fundamentos {
                 {"Operadores - Fundamentos", Operadores.Executar},
                 {"Unarios e Ternarios - Fundamentos", UnariosTernarios.Executar},
                 {"Estruturas de Controle - Fundamentos", EstruturasDeControle.Executar},
-                // Classes e metodos
+                // POO
                 {"Metodos - Classes", Metodos.Executar},
             });
 
