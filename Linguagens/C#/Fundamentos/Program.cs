@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Fundamentos.Basicos;
@@ -14,8 +14,8 @@ namespace Fundamentos {
                 {"Operadores - Fundamentos", Operadores.Executar},
                 {"Unarios e Ternarios - Fundamentos", UnariosTernarios.Executar},
                 {"Estruturas de Controle - Fundamentos", EstruturasDeControle.Executar},
-                // POO
-                {"Metodos - Classes", Metodos.Executar},
+                // Classes e metodos
+                {"Classes - Classes", Classes.Executar},
             });
 
             central.SelecionarEExecutar();
