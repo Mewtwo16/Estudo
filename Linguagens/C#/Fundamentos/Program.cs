@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Fundamentos.Basicos;
-using Fundamentos.classesMetodos;
+using Fundamentos.POO;
 
 namespace Fundamentos {
     class Program {
@@ -15,7 +15,7 @@ namespace Fundamentos {
                 {"Unarios e Ternarios - Fundamentos", UnariosTernarios.Executar},
                 {"Estruturas de Controle - Fundamentos", EstruturasDeControle.Executar},
                 // Classes e metodos
-                {"Metodos - Classes", Metodos.Executar},
+                {"Classes - Classes", Classes.Executar},
             });
 
             central.SelecionarEExecutar();
