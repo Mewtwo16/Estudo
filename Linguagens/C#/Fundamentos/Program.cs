@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 
 using Fundamentos.Basicos;
+using Fundamentos.Colecoes;
 using Fundamentos.POO;
 
 namespace Fundamentos {
@@ -14,6 +15,10 @@ namespace Fundamentos {
                 {"Operadores - Fundamentos", Operadores.Executar},
                 {"Unarios e Ternarios - Fundamentos", UnariosTernarios.Executar},
                 {"Estruturas de Controle - Fundamentos", EstruturasDeControle.Executar},
+                {"Enum e struct", Estruturas.Executar},
+                // Coleções
+                {"Arrays", Arrays.Executar},
+                {"Listas", Listas.Executar},
                 // Classes e metodos
                 {"Classes - Classes", Classes.Executar},
             });
