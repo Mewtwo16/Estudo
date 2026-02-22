@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
+/*
+ * Alem do List existe tambem o hashset
+ * Caracteristicas de hashset:
+ *      Não indexado
+ *      Não aceita repetição
+ *      Não tem add e addrange e sim union
+ */
+
 namespace Fundamentos.Colecoes{
     class ColecaoArrayList{
         public static void Executar(){

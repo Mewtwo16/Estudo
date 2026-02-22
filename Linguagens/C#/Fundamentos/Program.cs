@@ -19,8 +19,11 @@ namespace Fundamentos {
                 // Coleções
                 {"Arrays", Arrays.Executar},
                 {"Listas", Listas.Executar},
+                {"ArrayList", ColecaoArrayList.Executar},
+                {"Filas", ColecaoArrayList.Executar},
+                {"Igualdade", ColecaoArrayList.Executar},
                 // Classes e metodos
-                {"Classes - Classes", Classes.Executar},
+                {"Abstracao - Classes", Poo.Executar},
             });
 
             central.SelecionarEExecutar();
