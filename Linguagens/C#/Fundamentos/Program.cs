@@ -5,6 +5,7 @@ using Fundamentos.Colecoes;
 using Fundamentos.Funcoes;
 using Fundamentos.POO;
 using Fundamentos.TryCatch;
+using Fundamentos.api;
 
 
 namespace Fundamentos{
@@ -32,7 +33,13 @@ namespace Fundamentos{
                                 { "Extenção", Extencao.Executar },
                                 // tratamentos de Erros
                                 { "Tratamento de Erros", Tratamentos.Executar },
+                                // API do C#
+                                { "Escrevendo dados", EscrevendoDados.Executar },
+                                { "Lendo dados", EscrevendoDados.Executar },
+                                
                         });
+
+                        central.SelecionarEExecutar();
                 }
         }
 }
