@@ -35,7 +35,7 @@ namespace Fundamentos{
                                 { "Tratamento de Erros", Tratamentos.Executar },
                                 // API do C#
                                 { "Escrevendo dados", EscrevendoDados.Executar },
-                                { "Lendo dados", EscrevendoDados.Executar },
+                                { "Lendo dados", LendoArquivos.Executar },
                                 
                         });
 

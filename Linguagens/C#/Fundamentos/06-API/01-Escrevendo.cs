@@ -15,10 +15,14 @@ namespace Fundamentos.api{
 
         class EscrevendoDados{
                 public static void Executar(){
-                        var path = @"~/DEV/Estudo/Linguagens/C#/Fundamentos/primeiro_arquivo.txt".ParseHome();
-                        
-                        // Criando na pasta home
-                        if (!File.Exists(path)){
+            // para linux:
+            // var path = @"~/DEV/Estudo/Linguagens/C#/Fundamentos/primeiro_arquivo.txt".ParseHome();
+            // Para windows:
+            var path = @"C:/DEV/Estudo/Linguagens/C#/Fundamentos/primeiro_arquivo.txt".ParseHome();
+
+
+            // Criando na pasta home
+            if (!File.Exists(path)){
                                 using (StreamWriter sw = File.CreateText(path)){
                                         sw.WriteLine("Esse é");
                                         sw.WriteLine("o nosso");
