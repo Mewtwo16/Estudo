@@ -36,7 +36,9 @@ namespace Fundamentos{
                                 // API do C#
                                 { "Escrevendo dados", EscrevendoDados.Executar },
                                 { "Lendo dados", LendoArquivos.Executar },
-                                
+                                { "Diretorios", diretorios.Executar },
+                                { "caminhos", caminho.Executar },
+
                         });
 
                         central.SelecionarEExecutar();
