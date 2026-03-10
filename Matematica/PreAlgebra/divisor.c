@@ -14,37 +14,37 @@ void TodosDivisores(divisor* sDiv){
     int controle = 0;
     int divisor = 1;
     int *tempDivs;
+    int *arr;
     sDiv->total = 0;
     tempDivs = (int*)calloc(sDiv->size, sizeof(int));
 
     printf("Iniciada a funcao\n");
 
-    while((divisor * divisor) < sDiv->dividendo){
-        int *arr;
-        if(controle == sDiv->size){
-            sDiv->size = controle + controle;
-            arr = (int*)realloc(tempDivs, sDiv->size * sizeof(int));
-            if(arr == NULL){
-                printf("[Fatal-error] Não foi possivel fazer a realocação");
-                free(tempDivs);
-                return;
-            };
-            tempDivs = arr;
-        }
+    while((divisor * divisor) <= sDiv->dividendo){
         if((sDiv->dividendo % divisor) == 0){
+            if(controle +1 >= sDiv->size){
+                sDiv->size = controle * 2;
+                arr = (int*)realloc(tempDivs, sDiv->size * sizeof(int));
+                if(arr == NULL){
+                    printf("[Fatal-error] Não foi possivel fazer a realocação");
+                    free(tempDivs);
+                    return;
+                };
+                tempDivs = arr;
+            }
             tempDivs[controle] = divisor;
-            tempDivs[controle + 1] = sDiv->dividendo / divisor;
-            controle+= 2;
-            sDiv->total+=2;
+            if((sDiv->dividendo / divisor) != divisor) {
+                tempDivs[controle + 1] = sDiv->dividendo / divisor;
+                controle+= 2;
+                sDiv->total+=2;
+            }else {
+                controle+=1;
+                sDiv->total+=1;
+            }
+
         }   
 
         divisor++;
-    }
-
-    sDiv->divisores = (int*)calloc(sDiv->size, sizeof(int));
-    if(sDiv->divisores == NULL){
-        printf("[Fatal-Error] Memoria insuficiente!");
-        return;
     }
 
     sDiv->divisores = tempDivs;
