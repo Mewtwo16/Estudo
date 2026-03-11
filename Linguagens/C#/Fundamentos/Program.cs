@@ -1,11 +1,12 @@
-using System;
-using System.Collections.Generic;
+using Fundamentos.api;
 using Fundamentos.Basicos;
 using Fundamentos.Colecoes;
 using Fundamentos.Funcoes;
 using Fundamentos.POO;
 using Fundamentos.TryCatch;
-using Fundamentos.api;
+using Fundamentos.Avançados;
+using System;
+using System.Collections.Generic;
 
 
 namespace Fundamentos{
@@ -38,6 +39,8 @@ namespace Fundamentos{
                                 { "Lendo dados", LendoArquivos.Executar },
                                 { "Diretorios", diretorios.Executar },
                                 { "caminhos", caminho.Executar },
+                                // Avançados
+                                { "Linq", Linq.Executar },
 
                         });
 

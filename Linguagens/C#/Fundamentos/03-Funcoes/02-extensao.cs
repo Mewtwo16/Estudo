@@ -5,7 +5,7 @@ using System.Text;
 namespace Fundamentos.Funcoes{
 
     public static class ExtencoesInteiro{
-        // A palavra This defini que a função é uma função de extencao para tipos
+        // A palavra This define que a função, é uma função de extencao para tipos
         public static int Soma(this int num, int val){
             return num + val;
         }
