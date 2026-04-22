@@ -26,3 +26,4 @@ namespace _01_api.Models{
         public Categoria? Categoria { get; set; } // Chave de navegação
     }
 }
+
