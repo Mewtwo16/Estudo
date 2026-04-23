@@ -1,0 +1,22 @@
+@startuml
+actor Usuario
+
+boundary "Tela de Login" as Tela
+control "LoginController" as Controller
+control "AutenticacaoService" as Service
+
+Usuario -> Tela : informarCredenciais(login, senha)
+Tela -> Controller : realizarLogin(login, senha)
+Controller -> Service : validarCredenciais(login, senha)
+
+alt Credenciais validas
+    Service --> Controller : autenticado
+    Controller -> Tela : exibirSucesso()
+    Tela -> Usuario : loginRealizado()
+else Credenciais invalidas
+    Service --> Controller : erroAutenticacao
+    Controller -> Tela : exibirMensagemErro()
+    Tela -> Usuario : permanecerNaTelaLogin()
+end
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+actor Usuario
+
+control "RecuperacaoSenhaController" as Controller
+control "UsuarioService" as Service
+control "EmailService" as EmailService
+
+Usuario -> Tela : informaEmail(email)
+Tela -> Controller : solicitarRecuperacao(email)
+Controller -> Service : validarEmail(email)
+
+Service --> Controller : emailValido
+
+Controller -> Service : gerarToken(email)
+Service --> Controller : tokenGerado
+
+Controller -> EmailService : enviarEmailRecuperacao()
+
+EmailService --> Controller : emailEnviado
+Controller -> Tela : exibirMensagemSucesso()
+Tela -> Usuario : instrucoesEnviadasPorEmail()
+
+@enduml

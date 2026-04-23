@@ -1,0 +1,26 @@
+@startuml
+actor cliente
+
+boundary "Tela de pagamento" as Tela
+control "Pagamento Controller" as Controller
+control "PagamentoService" as Service
+boundary "Gateway de Pagamento" as Gateway
+
+Cliente -> Tela : informaDadosCartao(dados)
+Tela -> Controller : realizarPagamento(dados)
+Controller -> Service : processarPagamento(dados)
+Service -> Gateway : enviarDadosPagamento(dados)
+
+alt Pagamento autorizado
+    Gateway --> Service : autorizado
+    Service --> Controller : pagamentoConfirmado
+    Controller -> Tela : exibirConfirmacao()
+    Tela -> Cliente : pagamentoEfetuado()
+else Pagamento negado
+    Gateway --> Service : negado
+    Service --> Controller : pagamentoNegado
+    Controller -> Tela : exibirMensagemErro()
+    Tela -> Cliente : informarPagamentoNegado()
+end
+
+@enduml

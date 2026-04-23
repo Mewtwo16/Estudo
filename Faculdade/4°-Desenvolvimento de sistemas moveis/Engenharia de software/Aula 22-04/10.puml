@@ -1,0 +1,72 @@
+@startuml
+actor Cliente
+
+boundary "Tela E-commerce" as Tela
+control "LoginController" as LoginController
+control "CatalogoController" as CatalogoController
+control "CarrinhoController" as CarrinhoController
+control "PagamentoController" as PagamentoController
+control "PedidoService" as PedidoService
+control "PagamentoService" as PagamentoService
+database "Banco de Dados" as Banco
+boundary "Gateway de Pagamento" as Gateway
+entity "Pedido" as Pedido
+
+Cliente -> Tela : informarCredenciais(login, senha)
+Tela -> LoginController : realizarLogin(login, senha)
+LoginController -> Banco : validarCredenciais(login, senha)
+Banco --> LoginController : autenticado
+LoginController -> Tela : exibirHome()
+
+Cliente -> Tela : pesquisarProduto(codigo)
+Tela -> CatalogoController : consultarProduto(codigo)
+CatalogoController -> Banco : buscarProduto(codigo)
+Banco --> CatalogoController : produto
+CatalogoController -> Tela : exibirProduto(produto)
+
+Cliente -> Tela : iniciarPedido()
+Tela -> CarrinhoController : criarPedido()
+CarrinhoController -> PedidoService : criarPedido()
+PedidoService -> Pedido : <<create>>
+PedidoService --> CarrinhoController : pedidoCriado
+
+loop Para cada item selecionado
+	Cliente -> Tela : adicionarAoCarrinho(produto, quantidade)
+	Tela -> CarrinhoController : adicionarItem(produto, quantidade)
+	CarrinhoController -> PedidoService : verificarEstoque(produto, quantidade)
+	PedidoService -> Banco : consultarEstoque(produto)
+	Banco --> PedidoService : quantidadeDisponivel
+
+	alt Estoque suficiente
+		PedidoService -> Pedido : adicionarItem(produto, quantidade)
+		PedidoService --> CarrinhoController : itemAdicionado
+		CarrinhoController -> Tela : atualizarCarrinho()
+	else Estoque insuficiente
+		PedidoService --> CarrinhoController : erroEstoque
+		CarrinhoController -> Tela : exibirMensagemEstoqueInsuficiente()
+	end
+end
+
+Cliente -> Tela : confirmarPagamento(dadosCartao)
+Tela -> PagamentoController : processarPagamento(dadosCartao, valorTotal)
+PagamentoController -> PagamentoService : autorizarPagamento(dadosCartao, valorTotal)
+PagamentoService -> Gateway : enviarDadosPagamento(dadosCartao, valorTotal)
+
+alt Pagamento autorizado
+	Gateway --> PagamentoService : autorizado
+	PagamentoService -> Banco : registrarPagamento(pedido, autorizado)
+	PagamentoService --> PagamentoController : pagamentoConfirmado
+	PagamentoController -> PedidoService : confirmarPedido(pedido)
+	PedidoService -> Banco : salvarPedido(pedido)
+	PedidoService --> PagamentoController : pedidoConfirmado
+	PagamentoController -> Tela : exibirConfirmacaoPedido()
+	Tela -> Cliente : pedidoFinalizado()
+else Pagamento negado
+	Gateway --> PagamentoService : negado
+	PagamentoService -> Banco : registrarPagamento(pedido, negado)
+	PagamentoService --> PagamentoController : pagamentoNegado
+	PagamentoController -> Tela : exibirFalhaPagamento()
+	Tela -> Cliente : pagamentoNaoConcluido()
+end
+
+@enduml

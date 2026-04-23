@@ -1,0 +1,24 @@
+@startuml
+actor Usuario
+
+boundary "Tela de Cadastro" as Tela
+control "CadastroController" as Controller
+control "UsuarioService" as Service
+entity "Usuario" as NovoUsuario
+database "Banco de Dados" as Banco
+
+Usuario -> Tela : informarDadosCadastro(dados)
+Tela -> Controller : cadastrarUsuario(dados)
+Controller -> Service : validarInformacoes(dados)
+Service --> Controller : dadosValidos
+
+Controller -> Service : criarUsuario(dados)
+Service -> NovoUsuario : <<create>>
+Service -> Banco : salvarUsuario(NovoUsuario)
+Banco --> Service : dadosArmazenados
+
+Service --> Controller : cadastroConcluido
+Controller -> Tela : exibirMensagemSucesso()
+Tela -> Usuario : cadastroRealizado()
+
+@enduml
