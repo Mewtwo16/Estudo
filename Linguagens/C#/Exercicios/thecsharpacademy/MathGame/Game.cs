@@ -32,11 +32,52 @@ namespace MathGame {
         private Random rnd = new Random();
         private List<QA> qaHistory;
         public void Start() {
-            Console.WriteLine("What game would you like to play?");
-            Console.WriteLine($"{tLevel(0)}");
-            Console.WriteLine($"{tLevel(1)}");
-            Console.WriteLine($"{tLevel(2)}");
-            Console.WriteLine($"{tLevel(3)}");
+            QA quest = new QA();
+            Do
+            {
+                Console.WriteLine("What game would you like to play?");
+                Console.WriteLine($"[0] - {tLevel(0)}");
+                Console.WriteLine($"[1] - {tLevel(1)}");
+                Console.WriteLine($"[2] - {tLevel(2)}");
+                Console.WriteLine($"[3] - {tLevel(3)}");
+                Console.WriteLine($"[9] - Sair");
+                int.TryParse(Console.ReadLine(), out quest.level);
+                if (quest.level != 0)
+                {
+                    Console.WriteLine("Select your challenger");
+                    Console.WriteLine($"[0] - {tOp(0)}");
+                    Console.WriteLine($"[1] - {tOp(1)}");
+                    Console.WriteLine($"[2] - {tOp(2)}");
+                    Console.WriteLine($"[3] - {tOp(3)}");
+                    int.TryParse(Console.ReadLine(), out quest.op);
+                }
+                switch (quest.level)
+                {
+                    case 0:
+                        genQuest(ref quest);
+                        break;
+                    case 1:
+                        genQuest(ref quest);
+                        break;
+                    case 2:
+                        genQuest(ref quest);
+                        break;
+                    case 3:
+                        genQuest(ref quest);
+                        break;
+                    case 9:
+                        Console.WriteLine("Good bye");
+                        break;
+                    default:
+                        Console.WriteLine("Sorry, maybe one of the values is not valid!");
+                        break;
+                }
+
+
+            }while(quest.level != 9);
+
+
+
         }
 
         private void genQuest(ref QA quest)
