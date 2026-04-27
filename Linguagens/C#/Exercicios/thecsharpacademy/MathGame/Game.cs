@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -33,14 +34,15 @@ namespace MathGame {
         private List<QA> qaHistory;
         public void Start() {
             QA quest = new QA();
-            Do
-            {
+            int count = 0;
+            do{
                 Console.WriteLine("What game would you like to play?");
                 Console.WriteLine($"[0] - {tLevel(0)}");
                 Console.WriteLine($"[1] - {tLevel(1)}");
                 Console.WriteLine($"[2] - {tLevel(2)}");
                 Console.WriteLine($"[3] - {tLevel(3)}");
-                Console.WriteLine($"[9] - Sair");
+                Console.WriteLine($"History");
+                Console.WriteLine($"[9] - Exit");
                 int.TryParse(Console.ReadLine(), out quest.level);
                 if (quest.level != 0)
                 {
@@ -54,16 +56,31 @@ namespace MathGame {
                 switch (quest.level)
                 {
                     case 0:
-                        genQuest(ref quest);
+                        while(count < 5) {
+                            genQuest(ref quest);
+                            count++;
+                        }
                         break;
                     case 1:
-                        genQuest(ref quest);
+                        while (count < 5) {
+                            genQuest(ref quest);
+                            count++;
+                        }
                         break;
                     case 2:
-                        genQuest(ref quest);
+                        while (count < 5) {
+                            genQuest(ref quest);
+                            count++;
+                        }
                         break;
                     case 3:
-                        genQuest(ref quest);
+                        while (count < 5) {
+                            genQuest(ref quest);
+                            count++;
+                        }
+                        break;
+                    case 4:
+                        GenHistory();
                         break;
                     case 9:
                         Console.WriteLine("Good bye");
@@ -73,8 +90,10 @@ namespace MathGame {
                         break;
                 }
 
+                
 
             }while(quest.level != 9);
+
 
 
 
@@ -82,7 +101,27 @@ namespace MathGame {
 
         private void genQuest(ref QA quest)
         {
-            Console.WriteLine($"Qual a resposta? {quest.n1} {tOp(quest.op)} {quest.n2}: ");
+            genNumbers(ref quest);
+                Console.WriteLine($"Answer: {quest.n1} {tOp(quest.op)} {quest.n2}: ");
+                int.TryParse(Console.ReadLine(), out quest.uAnswer);
+                if(quest.uAnswer == quest.result) {
+                    Console.WriteLine("you beat it!");
+                } else {
+                    Console.WriteLine("Sorry, you fail!");
+                }
+                qaHistory.Add(quest);
+            
+        }
+
+        private void GenHistory() {
+            int count = 1;
+            foreach(var h in qaHistory) {
+                Console.WriteLine($"========== Game {count} ==========");
+                Console.WriteLine($"Question: {h.n1} {tOp(h.op)} {h.n2}");
+                Console.WriteLine($"Result: {h.result}");
+                Console.WriteLine($"Your Answer: {h.uAnswer}");
+                Console.WriteLine("==========   =========   ==========");
+            }
         }
 
         private void genNumbers(ref QA quest)
