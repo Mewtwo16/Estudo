@@ -1,0 +1,21 @@
+@startuml
+actor Usuario
+participant View
+participant Controller
+participant Service
+participant Repository
+
+Usuario -> View: solicita consulta(id)
+View -> Controller: request_consulta(id)
+Controller -> Service: consultar_usuario(id)
+Service -> Repository: buscar_por_id(id)
+Repository --> Service: dados_usuario
+alt Usuario Encontrado
+    Service --> Controller: usuario
+    Controller --> View: resposta(usuario)
+else Usuario Não Encontrado
+    Service --> Controller: Erro Usuario não Encontrado
+    Controller --> View: resposta(usuario não encontrado)
+end
+View --> Usuario: exibe dados
+@enduml

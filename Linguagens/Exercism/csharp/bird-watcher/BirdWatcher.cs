@@ -9,7 +9,7 @@ class BirdCount
 
     public static int[] LastWeek()
     {
-        throw new NotImplementedException("Please implement the (static) BirdCount.LastWeek() method");
+        return [0, 2, 5, 3, 7, 8, 4];
     }
 
     public int Today()
