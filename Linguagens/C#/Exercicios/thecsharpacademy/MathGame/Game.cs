@@ -4,24 +4,23 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MathGame {
-    
+
     class Game {
 
-        enum difficulty {
+        enum Difficulty {
             Random,
             Easy,
             Normal,
             Hard,
         }
 
-        enum operation{
+        enum Operation {
             Addition,
             Subtraction,
             Multiplication,
             Division,
         }
-        private struct QA
-        {
+        private struct QA {
             public int n1;
             public int n2;
             public int result;
@@ -31,21 +30,21 @@ namespace MathGame {
         }
 
         private Random rnd = new Random();
-        private List<QA> qaHistory;
+        private List<QA> qaHistory { get; set; }
         public void Start() {
             QA quest = new QA();
             int count = 0;
-            do{
+            do {
                 Console.WriteLine("What game would you like to play?");
                 Console.WriteLine($"[0] - {tLevel(0)}");
                 Console.WriteLine($"[1] - {tLevel(1)}");
                 Console.WriteLine($"[2] - {tLevel(2)}");
                 Console.WriteLine($"[3] - {tLevel(3)}");
-                Console.WriteLine($"History");
+                Console.WriteLine($"[4] - History");
                 Console.WriteLine($"[9] - Exit");
                 int.TryParse(Console.ReadLine(), out quest.level);
-                if (quest.level != 0)
-                {
+                Console.WriteLine($"Selecionado: {quest.level} ");
+                if (quest.level != 0 && quest.level != 4 && quest.level != 9) {
                     Console.WriteLine("Select your challenger");
                     Console.WriteLine($"[0] - {tOp(0)}");
                     Console.WriteLine($"[1] - {tOp(1)}");
@@ -53,10 +52,9 @@ namespace MathGame {
                     Console.WriteLine($"[3] - {tOp(3)}");
                     int.TryParse(Console.ReadLine(), out quest.op);
                 }
-                switch (quest.level)
-                {
+                switch (quest.level) {
                     case 0:
-                        while(count < 5) {
+                        while (count < 5) {
                             genQuest(ref quest);
                             count++;
                         }
@@ -90,32 +88,42 @@ namespace MathGame {
                         break;
                 }
 
-                
 
-            }while(quest.level != 9);
+
+            } while (quest.level != 9);
 
 
 
 
         }
 
-        private void genQuest(ref QA quest)
-        {
+        private void genQuest(ref QA quest) {
             genNumbers(ref quest);
-                Console.WriteLine($"Answer: {quest.n1} {tOp(quest.op)} {quest.n2}: ");
-                int.TryParse(Console.ReadLine(), out quest.uAnswer);
-                if(quest.uAnswer == quest.result) {
-                    Console.WriteLine("you beat it!");
-                } else {
-                    Console.WriteLine("Sorry, you fail!");
-                }
-                qaHistory.Add(quest);
-            
+            Console.WriteLine($"Answer: {quest.n1} {tOp(quest.op)} {quest.n2}: ");
+            int.TryParse(Console.ReadLine(), out quest.uAnswer);
+            if (quest.uAnswer == quest.result) {
+                Console.WriteLine("you beat it!");
+            } else {
+                Console.WriteLine("Sorry, you fail!");
+                Console.WriteLine($"Correct answer: {quest.result}");
+            }
+
+            addHistory(quest);
+
+        }
+
+        private void addHistory(QA quest) {
+            qaHistory.Add(quest);
         }
 
         private void GenHistory() {
             int count = 1;
-            foreach(var h in qaHistory) {
+            if (qaHistory == null) {
+                Console.WriteLine("Nothing Here");
+                return;
+            }
+
+            foreach (var h in qaHistory) {
                 Console.WriteLine($"========== Game {count} ==========");
                 Console.WriteLine($"Question: {h.n1} {tOp(h.op)} {h.n2}");
                 Console.WriteLine($"Result: {h.result}");
@@ -124,86 +132,74 @@ namespace MathGame {
             }
         }
 
-        private void genNumbers(ref QA quest)
-        {
+        private void genNumbers(ref QA quest) {
             int min = 0, max = 0;
-            if (quest.level == 0)
-            {
+            if (quest.level == 0) {
                 quest.op = rnd.Next(0, 4);
                 quest.level = rnd.Next(1, 4);
             }
 
-            if (quest.level == 1)
-            {
+            if (quest.level == 1) {
                 min = 1;
                 max = 10;
-            }else if (quest.level == 2)
-            {
+            } else if (quest.level == 2) {
                 min = 2;
                 max = 50;
-            }
-            else if (quest.level == 3)
-            {
+            } else if (quest.level == 3) {
                 min = 2;
                 max = 100;
             }
 
-            if (quest.op == 3)
-            {
-                quest.n1 = rnd.Next(min, max);
+            if (quest.op == 3) {
+                quest.n2 = rnd.Next(min, max);
                 quest.result = rnd.Next(min, max);
-                quest.n2 = quest.result * quest.n1;
-            }
-            else
-            {
+                quest.n1 = quest.result * quest.n2;
+            } else {
                 quest.n1 = rnd.Next(min, max);
                 quest.n2 = rnd.Next(min, max);
+                quest.result = quest.op switch {
+                    0 => quest.n1 + quest.n2,
+                    1 => quest.n1 - quest.n2,
+                    2 => quest.n1 * quest.n2,
+                    3 => quest.n1 / quest.n2,
+                    _ => 0
+                };
             }
         }
 
-        private string tOp(int op)
-        {
-            if (op == 0)
-            {
+        private string tOp(int op) {
+            if (op == 0) {
                 return "+";
             }
 
-            if (op == 1)
-            {
+            if (op == 1) {
                 return "-";
             }
 
-            if (op == 2)
-            {
+            if (op == 2) {
                 return "*";
             }
 
-            if (op == 3)
-            {
+            if (op == 3) {
                 return "/";
             }
             return "missing";
         }
 
-        private string tLevel(int level)
-        {
-            if (level == 0)
-            {
+        private string tLevel(int level) {
+            if (level == 0) {
                 return "Random";
             }
 
-            if (level == 1)
-            {
+            if (level == 1) {
                 return "Easy";
             }
 
-            if (level == 2)
-            {
+            if (level == 2) {
                 return "Normal";
             }
 
-            if (level == 3)
-            {
+            if (level == 3) {
                 return "Hard";
             }
 
