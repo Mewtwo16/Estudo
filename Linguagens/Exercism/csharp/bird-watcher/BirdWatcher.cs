@@ -14,26 +14,41 @@ class BirdCount
 
     public int Today()
     {
-        throw new NotImplementedException("Please implement the BirdCount.Today() method");
+        return birdsPerDay[birdsPerDay.Length - 1];
     }
 
     public void IncrementTodaysCount()
     {
-        throw new NotImplementedException("Please implement the BirdCount.IncrementTodaysCount() method");
+        birdsPerDay[birdsPerDay.Length - 1] += 1;
     }
 
     public bool HasDayWithoutBirds()
     {
-        throw new NotImplementedException("Please implement the BirdCount.HasDayWithoutBirds() method");
+        foreach (var birds in birdsPerDay)
+        {
+            if (birds == 0) return true;
+        }
+        return false;
     }
 
     public int CountForFirstDays(int numberOfDays)
     {
-        throw new NotImplementedException("Please implement the BirdCount.CountForFirstDays() method");
+        int count = 0;
+        for (int i = 0; i < numberOfDays; i++)
+        {
+            count += birdsPerDay[i];
+        }
+        return count;
     }
 
     public int BusyDays()
     {
-        throw new NotImplementedException("Please implement the BirdCount.BusyDays() method");
+        int count = 0;
+        foreach (var bird in birdsPerDay)
+        {
+            if (bird >= 5) count++;
+        }
+
+        return count;
     }
 }
