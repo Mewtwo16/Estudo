@@ -71,3 +71,26 @@ Ainda a partir de proposições dadas podemos construir novas proposições medi
 Colocando o condicional → entre duas proposições p e q, obtemos uma nova
 proposição, p → q, que se lê: “se p, então q”, “p é condição suficiente para q”, “q é
 condição necessária para p”.
+
+6. Condicional ↔
+Colocando o condicional ↔ entre duas proposições p e q, obtemos uma nova
+proposição, p ↔ q, que se lê: “p se, e somente se, q”, “p é condição necessária e
+suficiente para q”, “q é condição necessária e suficiente para p” ou “se p, então q e
+reciprocamente”.
+
+4-A = V
+4-B = V
+4-C = V
+4-D = F Errei (MDC (3,6) = 3)
+4-E = V Errei (MMC (2,8) = 2)
+4-F = F
+4-G = F Errei (falso + falso = verdadeiro)
+
+5-A = F
+5-B = V
+5-C = V
+5-D = V
+5-E = F
+5-F = V
+5-G = V
+5-H = F (Falso com Falso = Verdadeiro)
