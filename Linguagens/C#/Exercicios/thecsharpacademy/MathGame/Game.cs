@@ -31,23 +31,32 @@ namespace MathGame {
     }
 
     class Game {
-
-      
         private struct QA {
             public int n1;
             public int n2;
             public int result;
             public int uAnswer;
-            public int score;
             public Operation op;
             public Difficulty level;
+            public DateTime finished;
+        }
+
+        private struct Player {
+            public string? name;
+            public int score;
+
         }
 
         private Random rnd = new Random();
-        private List<QA> qaHistory = new List<QA>();
+        private List<(Player, QA)> History = new List<(Player, QA)>();
         public void Start() {
             QA quest = new QA();
+            Player p1 = new Player();
             int menu;
+
+            Console.WriteLine("Whats your name?");
+            p1.name = Console.ReadLine();
+
             Console.WriteLine("What game would you like to play?");
             Console.WriteLine($"[0] - {Difficulty.Random}");
             Console.WriteLine($"[1] - {Difficulty.Easy}");
@@ -56,7 +65,8 @@ namespace MathGame {
             Console.WriteLine($"[4] - History");
             Console.WriteLine($"[9] - Exit");
             int.TryParse(Console.ReadLine(), out menu);
-            if (menu > 0 && menu < 3) {
+            
+            if (menu > 0 && menu < 4) {
                 quest.level = (Difficulty)menu;
             }
             Console.WriteLine($"Selecionado: {quest.level} ");
@@ -66,54 +76,58 @@ namespace MathGame {
                 Console.WriteLine($"[1] - {Operation.Subtraction}");
                 Console.WriteLine($"[2] - {Operation.Multiplication}");
                 Console.WriteLine($"[3] - {Operation.Division}");
+                Enum.TryParse(Console.ReadLine(), out quest.op);
             }
 
             if (menu >= 0 && menu < 4) {
-                genQuest(ref quest);
-                Console.WriteLine($"Your score was: {quest.score}");
+                genQuest(ref quest, ref p1);
+                Console.WriteLine($"{p1.name} your score was: {p1.score}");
             } else if (menu == 4) {
-                GenHistory(ref quest);
+                GenHistory(ref quest, ref p1);
             } else if (menu == 9) {
-                Console.WriteLine("Thank you for playing");
+                Console.WriteLine($"{p1.name}, thank you for playing");
             } else {
                 Console.WriteLine("Opção invalida");
             }
         }
                 
-        private void genQuest(ref QA quest) {
+        private void genQuest(ref QA quest, ref Player p1) {
             int count = 0;
             while(count < 5) {
                 genNumbers(ref quest);
                 Console.WriteLine($"Answer: {quest.n1} {quest.op.ToSymbol()} {quest.n2}: ");
                 int.TryParse(Console.ReadLine(), out quest.uAnswer);
                 if (quest.uAnswer == quest.result) {
-                    quest.score++;
+                    p1.score++;
                     Console.WriteLine("you beat it!");
                 } else {
                     Console.WriteLine("Sorry, you fail!");
                     Console.WriteLine($"Correct answer: {quest.result}");
                 }
+                quest.finished = DateTime.Now;
                 addHistory(quest);
                 count++;
             }
         }
 
         private void addHistory(QA quest) {
-            qaHistory.Add(quest);
+            History.Add(quest);
         }
 
-        private void GenHistory(ref QA quest) {
+        private void GenHistory(ref QA quest, ref Player p1) {
             int count = 1;
-            if (qaHistory == null) {
+            if (History == null) {
                 Console.WriteLine("Nothing Here");
                 return;
             }
 
-            foreach (var h in qaHistory) {
+            foreach (var h in History) {
                 Console.WriteLine($"========== Game {count} ==========");
-                Console.WriteLine($"Question: {h.n1} {quest.op.ToSymbol()} {h.n2}");
+                Console.WriteLine($"Player: {h.name}");
+                Console.WriteLine($"Question: {h.n1} {h.op.ToSymbol()} {h.n2}");
                 Console.WriteLine($"Result: {h.result}");
                 Console.WriteLine($"Your Answer: {h.uAnswer}");
+                Console.WriteLine($"You finished at: {h.finished}");
                 Console.WriteLine("==========   =========   ==========");
             }
         }
