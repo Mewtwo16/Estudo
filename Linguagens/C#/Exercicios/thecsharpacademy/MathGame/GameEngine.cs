@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
@@ -7,6 +8,7 @@ namespace MathGame {
     class GameEngine {
         public static void Start() {
             Player p1 = new Player();
+            Quest quest = new Quest();
             Console.WriteLine("Welcome to MathGame!");
             Console.WriteLine("Would you like to say your name?");
             do {
@@ -23,13 +25,30 @@ namespace MathGame {
                     Console.WriteLine("Not a valid option!");
                 }
             }
-            Console.WriteLine("Select a Challanger:");
-            Console.WriteLine($"{Difficulty.Random}" +
-                $"{Difficulty.Easy}" +
-                $"{Difficulty.Normal}" +
-                $"{Difficulty.Hard}");
+
+            switch (menu) {
+                case 1:
+                    Console.WriteLine("Select a Challanger:");
+                    Console.WriteLine($"{Difficulty.Random}" +
+                        $"{Difficulty.Easy}" +
+                        $"{Difficulty.Normal}" +
+                       $"{Difficulty.Hard}");
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    Console.WriteLine("Error!");
+                    break;
+            }
+                
+            
+
+
+
         }
-
-
     }
 }
+
