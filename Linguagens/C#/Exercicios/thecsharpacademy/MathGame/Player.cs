@@ -6,6 +6,22 @@ namespace MathGame {
     class Player {
         public string Name { get; set; }
         public int Score { get; set; }
+        public int Answer { get; set; }
+
+        public void SetName()
+        {
+            Console.Write("What is your name: ");
+            bool validName = false;
+            while (!validName)
+            {
+                this.Name = Console.ReadLine();
+                if (this.Name.Length > 3)
+                {
+                    validName = true;
+                }
+                Console.Write("Please enter a valid name: ");
+            }
+        }
 
     }
 }

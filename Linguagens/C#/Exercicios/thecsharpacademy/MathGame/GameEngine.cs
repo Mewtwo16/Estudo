@@ -11,40 +11,28 @@ namespace MathGame {
             Quest quest = new Quest();
             Console.WriteLine("Welcome to MathGame!");
             Console.WriteLine("Would you like to say your name?");
-            do {
-                p1.Name = Console.ReadLine();
-            } while (p1.Name != null);
-            int menu = 0;
-            while (menu <= 0 && menu > 3) {
-                Console.WriteLine("What would you like to do:");
-                Console.WriteLine("[1] Start game" +
-                    "[2] Game History" +
-                    "[3] Exit");
-                int.TryParse(Console.ReadLine(), out menu);
-                if (menu <= 0 && menu > 3) {
-                    Console.WriteLine("Not a valid option!");
-                }
-            }
+            p1.SetName();
+            Console.WriteLine($"Very nice {p1.Name}, select your challenger:");
+            Console.WriteLine($"{Difficulty.Random}");
+            Console.WriteLine($"{Difficulty.Easy}");
+            Console.WriteLine($"{Difficulty.Normal}");
+            Console.WriteLine($"{Difficulty.Hard}");
+            bool isValid;
+            do
+            {
+                string input = Console.ReadLine();
 
-            switch (menu) {
-                case 1:
-                    Console.WriteLine("Select a Challanger:");
-                    Console.WriteLine($"{Difficulty.Random}" +
-                        $"{Difficulty.Easy}" +
-                        $"{Difficulty.Normal}" +
-                       $"{Difficulty.Hard}");
-                    
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                default:
-                    Console.WriteLine("Error!");
-                    break;
-            }
-                
-            
+                isValid = Enum.TryParse(input, true, out quest.difficulty);
+
+                if (!isValid)
+                {
+                    Console.WriteLine("Invalid option, please try again.");
+                }
+            } while (!isValid);
+
+
+
+
 
 
 
