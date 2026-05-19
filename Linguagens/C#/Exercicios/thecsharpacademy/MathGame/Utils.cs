@@ -34,5 +34,7 @@ namespace MathGame {
         public static int GenNumber(int min, int max) {
             return rnd.Next(min, max);
         }
+
+
     }
 }

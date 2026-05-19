@@ -12,29 +12,14 @@ namespace MathGame {
             Console.WriteLine("Welcome to MathGame!");
             Console.WriteLine("Would you like to say your name?");
             p1.SetName();
-            Console.WriteLine($"Very nice {p1.Name}, select your challenger:");
-            Console.WriteLine($"{Difficulty.Random}");
-            Console.WriteLine($"{Difficulty.Easy}");
-            Console.WriteLine($"{Difficulty.Normal}");
-            Console.WriteLine($"{Difficulty.Hard}");
-            bool isValid;
-            do
-            {
-                string input = Console.ReadLine();
-
-                isValid = Enum.TryParse(input, true, out quest.difficulty);
-
-                if (!isValid)
-                {
-                    Console.WriteLine("Invalid option, please try again.");
-                }
-            } while (!isValid);
-
-
-
-
-
-
+            Console.WriteLine($"Very nice {p1.Name}!");
+            quest.SetDifficulty();
+            Console.WriteLine($"Chosen: {quest.difficulty}");
+            if (quest.difficulty != Difficulty.Random) {
+                quest.SetOp();
+            }else if(quest.difficulty == Difficulty.Random){
+                Games.randomGame(quest);
+            }
 
         }
     }

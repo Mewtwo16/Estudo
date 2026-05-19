@@ -18,8 +18,9 @@ namespace MathGame {
                 if (this.Name.Length > 3)
                 {
                     validName = true;
+                } else {
+                    Console.Write("Please enter a valid name: ");
                 }
-                Console.Write("Please enter a valid name: ");
             }
         }
 
