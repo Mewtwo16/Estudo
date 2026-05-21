@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathGame {
     class Player {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Score { get; set; }
         public int Answer { get; set; }
 
@@ -15,7 +15,7 @@ namespace MathGame {
             while (!validName)
             {
                 this.Name = Console.ReadLine();
-                if (this.Name.Length > 3)
+                if (this.Name != null && this.Name.Length > 3)
                 {
                     validName = true;
                 } else {

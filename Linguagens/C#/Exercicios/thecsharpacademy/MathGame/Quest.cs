@@ -36,10 +36,10 @@ namespace MathGame {
             bool isValid = false;
             do {
                 Console.WriteLine("What kind of challanger:");
-                Console.WriteLine($"{Operator.Addition}");
-                Console.WriteLine($"{Operator.Subtration}");
-                Console.WriteLine($"{Operator.Multiplication}");
-                Console.WriteLine($"{Operator.Division}");
+                Console.WriteLine($"[0] - {Operator.Addition}");
+                Console.WriteLine($"[1] - {Operator.Subtration}");
+                Console.WriteLine($"[2] - {Operator.Multiplication}");
+                Console.WriteLine($"[3] - {Operator.Division}");
 
                 Enum.TryParse(Console.ReadLine(), out Operator parseOperator);
 
@@ -47,7 +47,7 @@ namespace MathGame {
                     Op = parseOperator;
                     isValid = true;
                 }else {
-                    Console.WriteLine("Choose a valid option!");
+                    Console.WriteLine("Is a valid option!");
                 }
 
             } while (!isValid);
