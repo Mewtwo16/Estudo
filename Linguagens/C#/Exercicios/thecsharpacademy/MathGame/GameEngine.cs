@@ -18,6 +18,8 @@ namespace MathGame {
 
             while (menu != 9) {
 
+                player.Score = 0;
+
                 Console.WriteLine("What would you like to do:");
                 Console.WriteLine("[1] - Start Game");
                 Console.WriteLine("[2] - History");
@@ -30,27 +32,22 @@ namespace MathGame {
                         if (quest.difficulty != Difficulty.Random) {
                             quest.SetOp();
                         } else if (quest.difficulty == Difficulty.Random) {
-                            Games.randomGame(quest, player);
-                            history.AddHistory(player, quest);
+                            Games.randomGame(quest, player, history);
                         }
                         int loop = 0;
                         while (loop < 5) {
                             switch (quest.Op) {
                                 case Operator.Addition:
-                                    Games.additionGame(quest, player);
-                                    history.AddHistory(player, quest);
+                                    Games.additionGame(quest, player, history);
                                     break;
                                 case Operator.Subtration:
-                                    Games.subtrationGame(quest, player);
-                                    history.AddHistory(player, quest);
+                                    Games.subtrationGame(quest, player, history);
                                     break;
                                 case Operator.Multiplication:
-                                    Games.multiplicationGame(quest, player);
-                                    history.AddHistory(player, quest);
+                                    Games.multiplicationGame(quest, player, history);
                                     break;
                                 case Operator.Division:
-                                    Games.divisionGame(quest, player);
-                                    history.AddHistory(player, quest);
+                                    Games.divisionGame(quest, player, history);                                    
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option!");
